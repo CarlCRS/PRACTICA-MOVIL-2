@@ -148,6 +148,65 @@
   font-size: 0.9em;
 }
 
+/* ---- Solución en vivo ---- */
+.reto-solucion {
+  margin-top: 48px;
+}
+
+.solucion-kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.solucion-titulo {
+  margin: 16px 0 20px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.solucion-card {
+  --background: #0f1623;
+  --color: #e2e8f0;
+  border: 1px solid #1e293b;
+  border-top: 3px solid #f59e0b;
+  border-radius: 14px;
+}
+
+.solucion-card ion-card-subtitle {
+  color: #fbbf24;
+}
+
+.solucion-card ion-card-title {
+  font-weight: 800;
+}
+
+.solucion-card ion-item {
+  --background: #0b1120;
+  --color: #e2e8f0;
+  --border-color: #1e293b;
+  --highlight-color-focused: #f59e0b;
+  margin-top: 14px;
+}
+
+.solucion-label {
+  margin: 14px 0 6px;
+  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-size: 0.82rem;
+  color: #4ade80;
+}
+
+.solucion-card ion-segment {
+  --background: #0b1120;
+}
+
 /* ---- CTA ---- */
 .reto-cta {
   max-width: 420px;

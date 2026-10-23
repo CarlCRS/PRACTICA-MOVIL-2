@@ -1,23 +1,62 @@
+import { useState } from "react";
 import {
   IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
   IonContent,
   IonHeader,
   IonIcon,
+  IonItem,
+  IonLabel,
   IonPage,
+  IonSegment,
+  IonSegmentButton,
+  IonSelect,
+  IonSelectOption,
   IonTitle,
   IonToolbar,
+  useIonToast,
 } from "@ionic/react";
 import { arrowBack, flash } from "ionicons/icons";
 import "./RetoDia1.css";
 
+/** ✏️ Cambia este valor por tu nombre (Paso 1 del Reto) */
+const MI_NOMBRE = "Tu Nombre";
+
+/** Paso 3: las 3 interfaces nativas del IonSelect */
+type MenuInterface = "action-sheet" | "popover" | "alert";
+
+/**
+ * Página del "Reto Relámpago del Día 1".
+ * Presentación del enunciado + solución en vivo de los 3 pasos.
+ */
 const RetoDia1: React.FC = () => {
+  const [present] = useIonToast();
+
+  // Paso 3: interface activa del IonSelect
+  const [tipoMenu, setTipoMenu] = useState<MenuInterface>("action-sheet");
+  const [idioma, setIdioma] = useState<string>("es");
+
+  // Paso 2: acción del botón Saludar
+  const saludar = () => {
+    present({
+      message: `¡Hola! Soy ${MI_NOMBRE} 👋`,
+      duration: 2000,
+      position: "bottom",
+      color: "tertiary",
+    });
+  };
+
   return (
     <IonPage className="reto-page">
       <IonHeader className="reto-header">
         <IonToolbar>
           <IonButton slot="start" routerLink="/home" fill="clear" color="light">
             <IonIcon icon={arrowBack} slot="start" />
-            Home
+            Retos
           </IonButton>
           <IonTitle>Reto Relámpago · Día 1</IonTitle>
         </IonToolbar>
@@ -80,10 +119,69 @@ const RetoDia1: React.FC = () => {
             </p>
           </div>
 
-          {/* CTA a la solución */}
+          {/* ============ SOLUCIÓN EN VIVO ============ */}
+          <section className="reto-solucion">
+            <span className="solucion-kicker">SOLUCIÓN EN VIVO</span>
+            <h2 className="solucion-titulo">Tu tarjeta personal</h2>
+
+            <IonCard className="solucion-card">
+              <IonCardHeader>
+                <IonCardSubtitle>Paso 1 · IonCardTitle</IonCardSubtitle>
+                <IonCardTitle>{MI_NOMBRE}</IonCardTitle>
+              </IonCardHeader>
+
+              <IonCardContent>
+                {/* Paso 2 */}
+                <IonButton
+                  expand="block"
+                  color="tertiary"
+                  onClick={saludar}
+                >
+                  Saludar
+                </IonButton>
+
+                {/* Paso 3 */}
+                <IonItem lines="full">
+                  <IonLabel>Idioma</IonLabel>
+                  <IonSelect
+                    interface={tipoMenu}
+                    value={idioma}
+                    placeholder="Selecciona un idioma"
+                    onIonChange={(e) => setIdioma(e.detail.value)}
+                  >
+                    <IonSelectOption value="es">Español</IonSelectOption>
+                    <IonSelectOption value="en">Inglés</IonSelectOption>
+                    <IonSelectOption value="fr">Francés</IonSelectOption>
+                    <IonSelectOption value="pt">Portugués</IonSelectOption>
+                  </IonSelect>
+                </IonItem>
+
+                <p className="solucion-label">
+                  interface=&quot;{tipoMenu}&quot;
+                </p>
+                <IonSegment
+                  value={tipoMenu}
+                  onIonChange={(e) =>
+                    setTipoMenu(e.detail.value as MenuInterface)
+                  }
+                >
+                  <IonSegmentButton value="action-sheet">
+                    <IonLabel>action-sheet</IonLabel>
+                  </IonSegmentButton>
+                  <IonSegmentButton value="popover">
+                    <IonLabel>popover</IonLabel>
+                  </IonSegmentButton>
+                  <IonSegmentButton value="alert">
+                    <IonLabel>alert</IonLabel>
+                  </IonSegmentButton>
+                </IonSegment>
+              </IonCardContent>
+            </IonCard>
+          </section>
+
           <div className="reto-cta">
-            <IonButton routerLink="/home" color="success" expand="block">
-              Ver la solución en Home.tsx
+            <IonButton routerLink="/home" fill="outline" color="light">
+              Volver a los retos
             </IonButton>
           </div>
         </div>

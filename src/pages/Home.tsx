@@ -1,183 +1,119 @@
-import React, { useState } from "react";
 import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
   IonContent,
   IonHeader,
+  IonIcon,
   IonPage,
   IonTitle,
   IonToolbar,
-  IonButton,
-  IonIcon,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent,
-  IonText,
-  IonBadge,
-  IonSpinner,
-  IonButtons,
-  IonItem,
-  IonSelect,
-  IonSelectOption,
-  IonSegment,
-  IonSegmentButton,
-  IonLabel,
-  useIonToast,
-} from "@ionic/react";
+} from '@ionic/react';
 import {
+  flashOutline,
+  layersOutline,
+  lockClosedOutline,
   micOutline,
-  stopCircleOutline,
-  languageOutline,
-  personCircleOutline,
-} from "ionicons/icons";
-import "./Home.css";
+  sparklesOutline,
+} from 'ionicons/icons';
+import './Home.css';
 
-const MI_NOMBRE = "Carlos";
+interface Reto {
+  dia: string;
+  titulo: string;
+  descripcion: string;
+  pasos: string;
+  icono: string;
+  ruta?: string;
+}
 
-type MenuInterface = "action-sheet" | "popover" | "alert";
+const RETOS: Reto[] = [
+  {
+    dia: 'DÍA 1',
+    titulo: 'Componentes base',
+    descripcion:
+      'Tarjeta personal con IonCard, botón Saludar y las 3 interfaces nativas del IonSelect.',
+    pasos: '3 pasos',
+    icono: layersOutline,
+    ruta: '/reto-1',
+  },
+  {
+    dia: 'DÍA 2',
+    titulo: 'Micrófono real',
+    descripcion:
+      'Hook useVoiceRecorder con Capacitor Bridge, captura de audio en Base64 y reproducción con <audio controls>.',
+    pasos: '3 chequeos',
+    icono: micOutline,
+    ruta: '/reto-2',
+  },
+  {
+    dia: 'DÍA 3',
+    titulo: 'Transcripción con IA',
+    descripcion:
+      'Conversión a binario y transcripción del audio con ElevenLabs Scribe y motor nativo.',
+    pasos: 'próximamente',
+    icono: sparklesOutline,
+  },
+];
 
 const Home: React.FC = () => {
-  const [isRecording, setIsRecording] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [idioma, setIdioma] = useState<string>("es-ES");
-  const [transcripcionEs, setTranscripcionEs] = useState<string>("");
-  const [tipoMenu, setTipoMenu] = useState<MenuInterface>("action-sheet");
-
-  // const [present] = useIonToast();
-
-  // const saludar = () => {
-  //   present({
-  //     message: `¡Hola! Soy ${MI_NOMBRE} `,
-  //     duration: 2000,
-  //     position: "bottom",
-  //     color: "tertiary",
-  //   });
-  // };
-
   return (
-    <IonPage>
+    <IonPage className="hub-page">
       <IonHeader>
         <IonToolbar color="primary">
-          <IonTitle>Traductor de Voz AI</IonTitle>
-          <IonButtons slot="end">
-            <IonButton routerLink="/reto-1" fill="clear" color="light">
-              Reto Día 1
-            </IonButton>
-          </IonButtons>
+          <IonTitle>Capacitación Ionic · Retos</IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding ion-text-center">
-        {/* Selector de Idioma Hablado */}
-        <IonCard>
-          <IonItem lines="none">
-            <IonSelect
-              label="Idioma hablado"
-              labelPlacement="stacked"
-              interface={tipoMenu}
-              value={idioma}
-              onIonChange={(e) => setIdioma(e.detail.value)}
-            >
-              <IonSelectOption value="es-ES">Español (es-ES)</IonSelectOption>
-              <IonSelectOption value="en-US">Inglés (en-US)</IonSelectOption>
-              <IonSelectOption value="pt-BR">Portugués (pt-BR)</IonSelectOption>
-              <IonSelectOption value="fr-FR">Francés (fr-FR)</IonSelectOption>
-            </IonSelect>
-          </IonItem>
+      <IonContent>
+        <div className="hub-wrap">
+          <span className="hub-kicker">
+            <IonIcon icon={flashOutline} /> RETOS RELÁMPAGO
+          </span>
+          <h1 className="hub-title">Elige el reto del día</h1>
+          <p className="hub-sub">
+            Cada tarjeta abre la página con el enunciado y la solución en vivo.
+          </p>
 
-          {/* Paso 3: cambiar la prop interface en vivo */}
-          <IonCardContent className="interface-selector">
-            <IonText color="medium">
-              <p className="interface-label">
-                interface=&quot;{tipoMenu}&quot;
-              </p>
-            </IonText>
-            <IonSegment
-              value={tipoMenu}
-              onIonChange={(e) => setTipoMenu(e.detail.value as MenuInterface)}
-            >
-              <IonSegmentButton value="action-sheet">
-                <IonLabel>action-sheet</IonLabel>
-              </IonSegmentButton>
-              <IonSegmentButton value="popover">
-                <IonLabel>popover</IonLabel>
-              </IonSegmentButton>
-              <IonSegmentButton value="alert">
-                <IonLabel>alert</IonLabel>
-              </IonSegmentButton>
-            </IonSegment>
-          </IonCardContent>
-        </IonCard>
-
-        {/* Tarjeta Principal de Grabación */}
-        <IonCard>
-          <IonCardHeader>
-            <IonBadge color={isRecording ? "danger" : "medium"}>
-              {isRecording ? "Grabando audio..." : "Listo para escuchar"}
-            </IonBadge>
-            <IonCardTitle className="ion-margin-top">
-              Habla en cualquier idioma
-            </IonCardTitle>
-          </IonCardHeader>
-
-          <IonCardContent>
-            <p>Tu voz se transcribirá automáticamente al español.</p>
-
-            <div style={{ margin: "30px 0" }}>
-              <IonButton
-                color={isRecording ? "danger" : "primary"}
-                shape="round"
-                size="large"
-                fill="outline"
-                expand="full"
-                onClick={() => setIsRecording(!isRecording)}
-              >
-                <IonIcon
-                  slot="icon-only"
-                  icon={isRecording ? stopCircleOutline : micOutline}
-                />
-              </IonButton>
-            </div>
-
-            {loading && <IonSpinner name="crescent" color="primary" />}
-          </IonCardContent>
-        </IonCard>
-
-        {/* Tarjeta de Resultado en Español */}
-        <IonCard>
-          <IonCardHeader>
-            <IonCardTitle>
-              <IonIcon icon={languageOutline} /> Transcripción (Español)
-            </IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>
-            <IonText color="dark">
-              <p style={{ fontSize: "1.1rem", minHeight: "80px" }}>
-                {transcripcionEs ||
-                  "Aquí aparecerá el texto traducido al español..."}
-              </p>
-            </IonText>
-          </IonCardContent>
-        </IonCard>
-
-        <IonCard className="tarjeta-personal">
-          <IonCardHeader>
-            <IonCardSubtitle>
-              <IonIcon icon={personCircleOutline} /> Reto Día 1 · Tarjeta
-              Personal
-            </IonCardSubtitle>
-            <IonCardTitle>{MI_NOMBRE}</IonCardTitle>
-          </IonCardHeader>
-
-          <IonCardContent>
-            <p>Esta es mi tarjeta del reto relámpago del Día 1.</p>
-
-            <IonButton expand="block" color="tertiary">
-              {/* onClick={saludar} */}
-              Saludar
-            </IonButton>
-          </IonCardContent>
-        </IonCard>
+          <div className="hub-grid">
+            {RETOS.map((reto) => {
+              const disponible = !!reto.ruta;
+              const Card = disponible ? IonCard : IonCard;
+              return (
+                <Card
+                  key={reto.dia}
+                  className={`hub-card ${disponible ? '' : 'bloqueada'}`}
+                  button={disponible}
+                  {...(disponible ? { routerLink: reto.ruta } : {})}
+                >
+                  <div className="hub-card-top">
+                    <span className="hub-dia">{reto.dia}</span>
+                    <IonIcon
+                      icon={disponible ? reto.icono : lockClosedOutline}
+                      className="hub-icono"
+                    />
+                  </div>
+                  <IonCardHeader>
+                    <IonCardSubtitle>{reto.pasos}</IonCardSubtitle>
+                    <IonCardTitle>{reto.titulo}</IonCardTitle>
+                  </IonCardHeader>
+                  <IonCardContent>
+                    <p>{reto.descripcion}</p>
+                    <div className="hub-card-footer">
+                      <span>
+                        {disponible ? 'Abrir reto' : 'Disponible pronto'}{' '}
+                        {disponible ? '→' : ''}
+                      </span>
+                    </div>
+                  </IonCardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
       </IonContent>
     </IonPage>
   );
