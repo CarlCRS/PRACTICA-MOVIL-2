@@ -1,0 +1,27 @@
+/* ===== Home · Traductor de Voz AI ===== */
+
+.interface-selector {
+  padding-top: 4px;
+}
+
+.interface-label {
+  margin: 0 0 8px;
+  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+/* Tarjeta personal del Reto Día 1 */
+.tarjeta-personal {
+  border-top: 3px solid #f59e0b;
+}
+
+.tarjeta-personal ion-card-subtitle {
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tarjeta-personal ion-card-title {
+  font-weight: 800;
+}

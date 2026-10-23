@@ -1,0 +1,162 @@
+/* ===== Página: Reto Relámpago del Día 1 ===== */
+
+.reto-page {
+  --background: #0a0e17;
+}
+
+.reto-header ion-toolbar {
+  --background: #0a0e17;
+  --color: #e2e8f0;
+  --border-width: 0;
+}
+
+.reto-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+/* ---- Título ---- */
+.reto-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.reto-title ion-icon {
+  color: #facc15;
+  font-size: 0.9em;
+  vertical-align: -0.08em;
+}
+
+/* ---- Subtítulo ---- */
+.reto-subtitle {
+  margin: 18px auto 0;
+  max-width: 660px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ---- Grid de pasos ---- */
+.reto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 44px;
+}
+
+.reto-card {
+  background: #0f1623;
+  border: 1px solid #1e293b;
+  border-top-width: 3px;
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+
+.reto-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.reto-card p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* Colores por paso */
+.reto-card.amarillo {
+  border-top-color: #f59e0b;
+}
+.reto-card.amarillo h3 {
+  color: #fbbf24;
+}
+
+.reto-card.morado {
+  border-top-color: #a855f7;
+}
+.reto-card.morado h3 {
+  color: #c084fc;
+}
+
+.reto-card.verde {
+  border-top-color: #22c55e;
+}
+.reto-card.verde h3 {
+  color: #4ade80;
+}
+
+/* Código en línea */
+.reto-card code {
+  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  color: #4ade80;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+  word-break: break-word;
+}
+
+/* ---- Banner Día 2 ---- */
+.reto-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 44px;
+  background: #0d1526;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 16px 22px;
+}
+
+.reto-banner-flecha {
+  color: #38bdf8;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.reto-banner p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.reto-banner strong {
+  color: #93c5fd;
+}
+
+.reto-banner strong.azul {
+  color: #38bdf8;
+}
+
+.reto-banner code {
+  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  color: #4ade80;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+/* ---- CTA ---- */
+.reto-cta {
+  max-width: 420px;
+  margin: 40px auto 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .reto-grid {
+    grid-template-columns: 1fr;
+  }
+}
