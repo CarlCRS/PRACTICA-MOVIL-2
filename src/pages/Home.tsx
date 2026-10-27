@@ -13,11 +13,11 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import {
+  cloudOutline,
   flashOutline,
   layersOutline,
   lockClosedOutline,
   micOutline,
-  sparklesOutline,
 } from 'ionicons/icons';
 import './Home.css';
 
@@ -51,11 +51,12 @@ const RETOS: Reto[] = [
   },
   {
     dia: 'DÍA 3',
-    titulo: 'Transcripción con IA',
+    titulo: 'Transcripción de voz',
     descripcion:
-      'Conversión a binario y transcripción del audio con ElevenLabs Scribe y motor nativo.',
-    pasos: 'próximamente',
-    icono: sparklesOutline,
+      'Nube con ElevenLabs Scribe v2 vs. reconocimiento en vivo con el motor nativo (Capgo) y fallback Web Speech.',
+    pasos: '2 casos',
+    icono: cloudOutline,
+    ruta: '/reto-3',
   },
 ];
 

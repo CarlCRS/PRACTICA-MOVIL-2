@@ -1,0 +1,383 @@
+/* ===== Página: Reto Relámpago del Día 3 ===== */
+
+.reto3-page {
+  --background: #080c14;
+  --ion-background-color: #080c14;
+  --ion-text-color: #e2e8f0;
+}
+
+.reto3-header ion-toolbar {
+  --background: #080c14;
+  --color: #e2e8f0;
+  --border-width: 0;
+}
+
+.reto3-wrap {
+  --ion-grid-width: 1080px;
+  padding: 40px 0 64px;
+}
+
+/* ---- Encabezado ---- */
+.reto3-kicker {
+  --color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.reto3-kicker ion-icon {
+  font-size: 0.95rem;
+}
+
+.reto3-title {
+  margin: 16px 0 0;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.reto3-subtitle {
+  margin: 14px auto 0;
+  max-width: 640px;
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ---- Selector de caso ---- */
+.reto3-segment {
+  --background: #0b1120;
+  margin-top: 26px;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+.reto3-segment ion-segment-button {
+  --color: #94a3b8;
+  --color-checked: #ffffff;
+  --indicator-color: #0ea5e9;
+  min-height: 46px;
+}
+
+.reto3-segment ion-icon {
+  font-size: 1.05rem;
+  margin-right: 4px;
+}
+
+/* ---- Layout principal ---- */
+.reto3-main {
+  align-items: stretch;
+  margin-top: 22px;
+}
+
+.reto3-panel {
+  --background: #0f1623;
+  --color: #e2e8f0;
+  --border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  border: 1px solid #1e293b;
+  box-shadow: none;
+}
+
+.reto3-panel ion-card-header {
+  padding-bottom: 4px;
+}
+
+.reto3-panel ion-card-subtitle {
+  --color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reto3-panel ion-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.reto3-panel ion-card-content {
+  flex: 1;
+}
+
+/* ---- Lista de requisitos ---- */
+.reto3-req {
+  background: transparent;
+  padding: 0;
+}
+
+.reto3-req ion-item {
+  --background: transparent;
+  --color: #cbd5e1;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --min-height: 58px;
+  align-items: flex-start;
+}
+
+.reto3-req ion-icon.reto3-req-icono {
+  color: #38bdf8;
+  font-size: 1.15rem;
+  margin-top: 6px;
+  margin-right: 12px;
+}
+
+.reto3-req ion-label h3 {
+  margin: 0 0 2px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.reto3-req ion-label p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #94a3b8;
+  white-space: normal;
+}
+
+/* ---- Selector de idioma ---- */
+.reto3-select {
+  --background: #0b1120;
+  --color: #e2e8f0;
+  --border-radius: 10px;
+  margin: 2px 0 10px;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+}
+
+/* ---- Temporizador ---- */
+.reto3-timer {
+  margin: 14px 0 0;
+  text-align: center;
+  font-family: Consolas, 'Fira Code', monospace;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.reto3-timer.activo {
+  color: #f87171;
+}
+
+/* ---- Botón de micrófono ---- */
+.reto3-mic {
+  margin-top: 2px;
+}
+
+.reto3-mic-btn {
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 84px;
+  height: 84px;
+  margin-top: 4px;
+}
+
+.reto3-mic-btn ion-icon {
+  font-size: 36px;
+}
+
+.reto3-mic-btn.grabando {
+  animation: pulsar-voz 1.4s ease-in-out infinite;
+}
+
+@keyframes pulsar-voz {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(239, 68, 68, 0);
+  }
+}
+
+.reto3-mic-label {
+  --color: #94a3b8;
+  display: block;
+  margin-top: 10px;
+  font-size: 0.88rem;
+}
+
+/* ---- Audio ---- */
+.reto3-audio {
+  width: 100%;
+  margin: 10px 0 14px;
+}
+
+/* ---- Botón transcribir ---- */
+.reto3-btn-transcribir {
+  --border-radius: 10px;
+  margin-top: 6px;
+}
+
+/* ---- Chips ---- */
+.reto3-chips {
+  align-items: center;
+  margin: 6px 0 2px;
+}
+
+.reto3-chip {
+  --color: #94a3b8;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  background: #0b1120;
+  border: 1px solid #1e293b;
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+.reto3-chip ion-icon {
+  font-size: 0.95rem;
+}
+
+.reto3-chip[data-estado='success'] {
+  --color: #4ade80;
+  border-color: #166534;
+}
+
+.reto3-chip[data-estado='danger'] {
+  --color: #f87171;
+  border-color: #7f1d1d;
+}
+
+.reto3-chip[data-estado='warning'] {
+  --color: #fbbf24;
+  border-color: #854d0e;
+}
+
+/* ---- Resultado ---- */
+.reto3-resultado {
+  --background: #0b1120;
+  --color: #e2e8f0;
+  --border-radius: 12px;
+  margin: 16px 0 0;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #38bdf8;
+  box-shadow: none;
+}
+
+.reto3-resultado.vivo {
+  border-left-color: #a855f7;
+}
+
+.reto3-resultado ion-card-content {
+  padding: 14px 16px;
+}
+
+.reto3-resultado-label {
+  --color: #64748b;
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.reto3-resultado-texto {
+  margin: 0;
+  min-height: 64px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #f1f5f9;
+}
+
+.reto3-resultado-meta {
+  --color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: Consolas, monospace;
+  font-size: 0.76rem;
+}
+
+/* ---- Estados vacíos y errores ---- */
+.reto3-vacio {
+  margin: 14px 0 0;
+  padding: 28px 18px;
+  text-align: center;
+  border: 1px dashed #1e293b;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.reto3-error {
+  margin: 12px 0 0;
+  background: rgba(127, 29, 29, 0.25);
+  border: 1px solid #7f1d1d;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+/* ---- Avisos ---- */
+.reto3-aviso {
+  --background: #0d1526;
+  --color: #cbd5e1;
+  --border-radius: 12px;
+  margin: 14px 0 0;
+  border: 1px solid #1e3a5f;
+  box-shadow: none;
+}
+
+.reto3-aviso.rojo {
+  --background: #1a0f14;
+  border-color: #7f1d1d;
+}
+
+.reto3-aviso.azul {
+  --background: #0b1524;
+  border-color: #1e3a5f;
+}
+
+.reto3-aviso ion-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.reto3-aviso-icono {
+  color: #f87171;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.reto3-aviso.azul .reto3-aviso-icono {
+  color: #38bdf8;
+}
+
+.reto3-aviso strong {
+  color: #e2e8f0;
+}
+
+.reto3-aviso code {
+  font-family: Consolas, monospace;
+  color: #4ade80;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 5px;
+  padding: 1px 5px;
+}

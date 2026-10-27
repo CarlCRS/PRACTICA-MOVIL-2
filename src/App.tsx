@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import RetoDia1 from './pages/RetoDia1';
 import RetoDia2 from './pages/RetoDia2';
+import RetoDia3 from './pages/RetoDia3';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -43,6 +44,7 @@ const App: React.FC = () => (
         <Route path="/home" element={<Home />} />
         <Route path="/reto-1" element={<RetoDia1 />} />
         <Route path="/reto-2" element={<RetoDia2 />} />
+        <Route path="/reto-3" element={<RetoDia3 />} />
         <Route path="/" element={<Navigate to="/home" replace />} />
       </IonRouterOutlet>
     </IonReactRouter>

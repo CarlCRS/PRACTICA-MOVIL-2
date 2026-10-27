@@ -35,7 +35,14 @@ export const useVoiceRecorder = () => {
     }
   };
 
-  useEffect(() => () => detenerTimer(), []);
+  useEffect(
+    () => () => {
+      detenerTimer();
+      // Si el usuario sale de la página mientras graba, liberamos el micrófono.
+      void VoiceRecorder.stopRecording().catch(() => {});
+    },
+    [],
+  );
 
   /** Guarda la grabación y reporta su tamaño en consola (Paso 2 del checkpoint) */
   const guardarGrabacion = (base64: string, mimeType: string) => {
