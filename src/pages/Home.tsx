@@ -1,5 +1,4 @@
 import {
-  IonButton,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -13,6 +12,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import {
+  archiveOutline,
   cloudOutline,
   flashOutline,
   layersOutline,
@@ -57,6 +57,15 @@ const RETOS: Reto[] = [
     pasos: '2 casos',
     icono: cloudOutline,
     ruta: '/reto-3',
+  },
+  {
+    dia: 'DÍA 4',
+    titulo: 'UX nativa y persistencia',
+    descripcion:
+      'Toast y Loading en lugar de diálogos bloqueantes, historial con @capacitor/preferences y laboratorio frente a localStorage.',
+    pasos: '3 chequeos',
+    icono: archiveOutline,
+    ruta: '/reto-4',
   },
 ];
 

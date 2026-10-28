@@ -50,7 +50,7 @@
 /* ---- Grid de tarjetas ---- */
 .hub-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 22px;
   margin-top: 40px;
 }
@@ -81,6 +81,10 @@
 
 .hub-card:nth-child(3) {
   border-top-color: #38bdf8;
+}
+
+.hub-card:nth-child(4) {
+  border-top-color: #10b981;
 }
 
 .hub-card-top {
@@ -116,6 +120,10 @@
 
 .hub-card:nth-child(3) .hub-icono {
   color: #7dd3fc;
+}
+
+.hub-card:nth-child(4) .hub-icono {
+  color: #6ee7b7;
 }
 
 .hub-card ion-card-subtitle {
@@ -156,7 +164,13 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
+  .hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
   .hub-grid {
     grid-template-columns: 1fr;
   }

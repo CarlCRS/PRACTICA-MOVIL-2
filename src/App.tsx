@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import RetoDia1 from './pages/RetoDia1';
 import RetoDia2 from './pages/RetoDia2';
 import RetoDia3 from './pages/RetoDia3';
+import RetoDia4 from './pages/RetoDia4';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,6 +46,7 @@ const App: React.FC = () => (
         <Route path="/reto-1" element={<RetoDia1 />} />
         <Route path="/reto-2" element={<RetoDia2 />} />
         <Route path="/reto-3" element={<RetoDia3 />} />
+        <Route path="/reto-4" element={<RetoDia4 />} />
         <Route path="/" element={<Navigate to="/home" replace />} />
       </IonRouterOutlet>
     </IonReactRouter>

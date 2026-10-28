@@ -1,0 +1,709 @@
+/* ===== Página: Reto Relámpago del Día 4 ===== */
+
+.reto4-page {
+  --background: #080c14;
+  --ion-background-color: #080c14;
+  --ion-text-color: #e2e8f0;
+}
+
+.reto4-header ion-toolbar {
+  --background: #080c14;
+  --color: #e2e8f0;
+  --border-width: 0;
+}
+
+.reto4-wrap {
+  --ion-grid-width: 1120px;
+  padding: 40px 0 64px;
+}
+
+/* ---- Encabezado ---- */
+.reto4-kicker {
+  --color: #34d399;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.reto4-kicker ion-icon {
+  font-size: 0.95rem;
+}
+
+.reto4-title {
+  margin: 16px 0 0;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.reto4-subtitle {
+  margin: 14px auto 0;
+  max-width: 660px;
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.reto4-subtitle code {
+  font-family: Consolas, 'Fira Code', monospace;
+  font-size: 0.86rem;
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+/* ---- Chips de estado ---- */
+.reto4-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.reto4-chip {
+  --color: #94a3b8;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  background: #0b1120;
+  border: 1px solid #1e293b;
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+.reto4-chip ion-icon {
+  font-size: 0.95rem;
+}
+
+.reto4-chip[data-estado='granted'] {
+  --color: #4ade80;
+  border-color: #166534;
+}
+
+.reto4-chip[data-estado='denied'] {
+  --color: #f87171;
+  border-color: #7f1d1d;
+}
+
+/* ---- Layout principal ---- */
+.reto4-main {
+  align-items: stretch;
+  margin-top: 24px;
+}
+
+.reto4-panel {
+  --background: #0f1623;
+  --color: #e2e8f0;
+  --border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  border: 1px solid #1e293b;
+  box-shadow: none;
+}
+
+.reto4-panel ion-card-header {
+  padding-bottom: 4px;
+}
+
+.reto4-panel ion-card-subtitle {
+  --color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reto4-panel ion-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.reto4-panel ion-card-content {
+  flex: 1;
+  padding-top: 8px;
+}
+
+/* ---- Selector de idioma ---- */
+.reto4-select {
+  --background: #0b1120;
+  --color: #e2e8f0;
+  --min-height: 48px;
+  --padding-start: 12px;
+  --inner-padding-end: 8px;
+  margin-bottom: 6px;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  font-size: 0.86rem;
+}
+
+.reto4-select ion-label {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+}
+
+.reto4-select ion-icon {
+  color: #34d399;
+}
+
+/* ---- Temporizador y micrófono ---- */
+.reto4-timer {
+  margin: 12px 0 0;
+  text-align: center;
+  font-family: Consolas, 'Fira Code', monospace;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.reto4-timer.activo {
+  color: #f87171;
+}
+
+.reto4-mic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.reto4-mic-btn {
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 78px;
+  height: 78px;
+  margin-top: 2px;
+}
+
+.reto4-mic-btn ion-icon {
+  font-size: 34px;
+}
+
+.reto4-mic-btn.grabando {
+  animation: pulsar-reto4 1.4s ease-in-out infinite;
+}
+
+@keyframes pulsar-reto4 {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+}
+
+.reto4-mic-label {
+  --color: #94a3b8;
+  display: block;
+  margin-top: 8px;
+  font-size: 0.84rem;
+}
+
+/* ---- Audio ---- */
+.reto4-audio {
+  width: 100%;
+  margin: 12px 0 4px;
+}
+
+.reto4-audio-meta {
+  --color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-family: Consolas, monospace;
+  font-size: 0.72rem;
+}
+
+/* ---- Botones ---- */
+.reto4-btn-principal {
+  --border-radius: 10px;
+  margin-top: 12px;
+}
+
+.reto4-acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.reto4-acciones ion-button {
+  --border-radius: 10px;
+  flex: 1;
+  margin: 0;
+}
+
+.reto4-acciones-lista {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.reto4-acciones-lista ion-button {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+/* ---- Pistas y errores ---- */
+.reto4-hint {
+  --color: #64748b;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.reto4-hint ion-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 0.95rem;
+  color: #34d399;
+}
+
+.reto4-hint code,
+.reto4-store code,
+.reto4-store-pie code {
+  font-family: Consolas, 'Fira Code', monospace;
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 4px;
+  padding: 1px 4px;
+  white-space: nowrap;
+}
+
+.reto4-error {
+  margin: 12px 0 0;
+  background: rgba(127, 29, 29, 0.25);
+  border: 1px solid #7f1d1d;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+/* ---- Historial ---- */
+.reto4-lista {
+  --background: transparent;
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid #1e293b;
+  overflow: hidden;
+}
+
+.reto4-lista ion-list-header {
+  --background: #0b1120;
+  --color: #94a3b8;
+  --min-height: 40px;
+  padding-inline: 14px;
+  border-bottom: 1px solid #1e293b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reto4-lista ion-list-header ion-note {
+  --color: #34d399;
+  font-family: Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.reto4-lista ion-item {
+  --background: #0b1120;
+  --color: #e2e8f0;
+  --border-color: #1e293b;
+  --padding-start: 12px;
+  --inner-padding-end: 4px;
+  font-size: 0.86rem;
+}
+
+.reto4-item-icono {
+  color: #34d399;
+  font-size: 1.1rem;
+  margin-right: 12px;
+  align-self: flex-start;
+  margin-top: 15px;
+}
+
+.reto4-item ion-label h3 {
+  margin: 0 0 3px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #f1f5f9;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.reto4-item ion-label p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.reto4-item ion-label p ion-icon {
+  font-size: 0.78rem;
+}
+
+.reto4-item ion-button {
+  --padding-start: 4px;
+  --padding-end: 4px;
+  height: 34px;
+  margin: 0;
+}
+
+.reto4-item ion-button ion-icon {
+  font-size: 1.05rem;
+}
+
+.reto4-vacio {
+  --background: #0b1120;
+  --min-height: 104px;
+  --padding-start: 14px;
+}
+
+.reto4-vacio-icono {
+  color: #334155;
+  font-size: 1.6rem;
+  margin-right: 14px;
+}
+
+.reto4-vacio ion-label h3 {
+  margin: 0 0 4px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.reto4-vacio ion-label p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #64748b;
+  white-space: normal;
+}
+
+/* ---- Divisor ---- */
+.reto4-divisor {
+  --background: transparent;
+  margin: 16px 0 10px;
+  border: none;
+}
+
+.reto4-divisor-texto {
+  color: #475569;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Laboratorio comparativo ---- */
+.reto4-lab {
+  margin-top: 22px;
+}
+
+.reto4-compare {
+  display: contents;
+}
+
+.reto4-store {
+  background: #0b1120;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.reto4-store.nativo {
+  border-top: 3px solid #10b981;
+}
+
+.reto4-store.web {
+  border-top: 3px solid #64748b;
+}
+
+.reto4-store-head {
+  --background: transparent;
+  --border: none;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  min-width: 0;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.reto4-store-head > ion-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.reto4-store.nativo .reto4-store-head > ion-icon {
+  color: #34d399;
+}
+
+.reto4-store.web .reto4-store-head > ion-icon {
+  color: #94a3b8;
+}
+
+.reto4-store-head div {
+  min-width: 0;
+}
+
+.reto4-store-head h3 {
+  margin: 0 0 2px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.reto4-store-head code {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  background: transparent;
+  padding: 0;
+}
+
+.reto4-badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: Consolas, monospace;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  background: #111c2e;
+  border: 1px solid #1e293b;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.reto4-crudo {
+  margin: 0;
+  padding: 10px 12px;
+  min-height: 132px;
+  max-height: 190px;
+  overflow: auto;
+  background: #080c14;
+  border: 1px solid #16202f;
+  border-radius: 10px;
+  font-family: Consolas, 'Fira Code', monospace;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.reto4-store-pie {
+  --background: transparent;
+  --border: none;
+  --padding-start: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+  font-size: 0.7rem;
+  color: #64748b;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.reto4-store-pie ion-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.reto4-store-acciones {
+  --background: transparent;
+  --border: none;
+  --padding-start: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.reto4-store-acciones ion-button {
+  --border-radius: 8px;
+  font-size: 0.72rem;
+  margin: 0;
+}
+
+.reto4-hint-lab {
+  margin-top: 16px;
+}
+
+/* ---- Checkpoint ---- */
+.reto4-checkpoint {
+  margin-top: 22px;
+  padding: 22px 24px;
+  background: linear-gradient(160deg, #0b1524 0%, #0a1018 100%);
+  border: 1px solid #1e3a5f;
+  border-radius: 18px;
+}
+
+.reto4-checkpoint-head {
+  --background: transparent;
+  --border: none;
+  --padding-start: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.reto4-checkpoint-head > ion-icon {
+  font-size: 1.7rem;
+  color: #34d399;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.reto4-checkpoint-head h2 {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.reto4-checkpoint-head p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+.reto4-check-grid {
+  display: contents;
+  margin-top: 18px;
+}
+
+.reto4-check {
+  --background: #0b1120;
+  --color: #e2e8f0;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #10b981;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.reto4-check:nth-child(2) {
+  border-left-color: #14b8a6;
+}
+
+.reto4-check:nth-child(3) {
+  border-left-color: #22d3ee;
+}
+
+.reto4-check h3 {
+  display: block;
+  margin: 0 0 5px;
+  font-size: 0.84rem;
+  color: #6ee7b7;
+}
+
+.reto4-check p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+.reto4-check code {
+  font-family: Consolas, monospace;
+  font-size: 0.74rem;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+
+.reto4-siguiente {
+  --background: transparent;
+  --border: none;
+  --padding-start: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed #1e293b;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.reto4-siguiente ion-icon {
+  color: #fbbf24;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .reto4-compare ion-row {
+    display: block;
+  }
+
+  .reto4-check-grid ion-row {
+    display: block;
+  }
+
+  .reto4-wrap {
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reto4-checkpoint {
+    padding: 18px 16px;
+  }
+
+  .reto4-acciones {
+    flex-direction: column;
+  }
+
+  .reto4-acciones ion-button {
+    width: 100%;
+  }
+}
